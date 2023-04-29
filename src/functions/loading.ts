@@ -30,7 +30,7 @@ export async function getInfo() {
       // @ts-ignore
       let matches = await fetch('https://api.football-data.org/v4/competitions/PL/matches', options);
       matches_return = await matches.json();
-      await supabase.from('api_responses').upsert({created_at: new Date().toDateString(), fantasy_response: fantasty_stats_return, footballmatch_response: matches_return, footballstanding_response: standings_return}).eq("id", "1");
+      await supabase.from('api_responses').upsert({id: 1, created_at: new Date().toDateString(), fantasy_response: fantasty_stats_return, footballmatch_response: matches_return, footballstanding_response: standings_return}).eq("id", 1);
     } else {
       // @ts-ignore
       standings_return = data[0].footballstanding_response;
